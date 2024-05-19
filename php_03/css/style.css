@@ -1,0 +1,29 @@
+body{
+	width:90%;
+	margin: 2em auto;
+}
+
+.header, .footer, .content { 
+	margin: 1em auto;
+	border: 0.01em solid #673C4F;
+	border-radius: 1em;
+	padding: 1em;
+	background: #7F557D;
+    box-shadow: 0.5em 0.5em 0.7em #624763;
+}
+
+.header, .footer{ 
+	text-align: center;
+}
+
+.messages {	margin: 1em auto; }
+
+.err, .inf, .res {
+	padding: 1em 1em 1em 3em;
+	border-radius: 1em;
+	color: #222;
+}
+
+.err { background-color: #D36060; }
+.inf { background-color: #C2714F; }
+.res { background-color: #F6C5AF; }
