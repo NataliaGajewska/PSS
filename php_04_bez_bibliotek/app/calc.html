@@ -1,0 +1,61 @@
+{extends file="../templates/main.html"}
+
+{block name=footer}Super ważna stopka!{/block}
+
+{block name=content}
+
+<h3>Kalkulator kredytowy</h2>
+
+
+<form class="pure-form pure-form-stacked" action="{$app_url}/app/calc.php" method="post">
+	<fieldset>
+		<label for="cr_amt">Kwota</label>
+		<input id="cr_amt" type="text" placeholder="super kwota" name="cr_amt" value="{$form['cr_amt']}">
+                <label for="year">Liczba lat</label>
+		<input id="year" type="text" placeholder="super liczba lat" name="year" value="{$form['year']}">
+                <label for="rate">Oprocentowanie</label>
+		<input id="rate" type="text" placeholder="super malutkie oprocentowanie" name="rate" value="{$form['rate']}">
+	</fieldset>
+	<button type="submit" class="pure-form pure-form-stacked">Oblicz miesięczną rate</button>
+</form>
+
+<div class="messages">
+
+{* wyświeltenie listy błędów, jeśli istnieją *}
+{if isset($messages)}
+	{if count($messages) > 0} 
+		<h4>Wystąpiły błędy: </h4>
+		<ol class="err">
+		{foreach  $messages as $msg}
+		{strip}
+			<li>{$msg}</li>
+		{/strip}
+		{/foreach}
+		</ol>
+	{/if}
+{/if}
+
+{* wyświeltenie listy informacji, jeśli istnieją *}
+{if isset($infos)}
+	{if count($infos) > 0} 
+		<h4>Informacje: </h4>
+		<ol class="inf">
+		{foreach  $infos as $msg}
+		{strip}
+			<li>{$msg}</li>
+		{/strip}
+		{/foreach}
+		</ol>
+	{/if}
+{/if}
+
+{if isset($result)}
+	<h4>Wynik</h4>
+	<p class="res">
+	{$result}
+	</p>
+{/if}
+
+</div>
+
+{/block}
